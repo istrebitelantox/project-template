@@ -13,7 +13,7 @@ pipeline {
         stage("docker login") {
             steps {
                 echo " ============== docker login =================="
-                withCredentials([usernamePassword(credentialsId: 'dockerhub_semaev', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'admin', usernameVariable: 'admin', passwordVariable: 'admin')]) {
                     sh """
                     docker login -u $USERNAME -p $PASSWORD
                     """
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo " ============== start pushing image =================="
                 sh '''
-                docker push semaev/toolbox:latest
+                doker push istrebitelantox/toolbox:latest
                 '''
             }
         }
